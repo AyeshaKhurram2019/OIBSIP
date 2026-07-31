@@ -27,6 +27,9 @@ jobs:
         cp AndroidDev-Task1-UnitConverter/MainActivity.java app/src/main/java/com/example/unitconverter/
         cp AndroidDev-Task1-UnitConverter/activity_main.xml app/src/main/res/layout/
         
+        # Enable AndroidX
+        echo "android.useAndroidX=true" > gradle.properties
+        
         echo "include ':app'" > settings.gradle
         
         cat << 'EOF' > build.gradle
