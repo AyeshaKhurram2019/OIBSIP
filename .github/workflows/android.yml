@@ -24,12 +24,10 @@ jobs:
         mkdir -p app/src/main/java/com/example/unitconverter
         mkdir -p app/src/main/res/layout
         
-        cp AndroidDev-Task1-UnitConverter/MainActivity.java app/src/main/java/com/example/unitconverter/
-        cp AndroidDev-Task1-UnitConverter/activity_main.xml app/src/main/res/layout/
+        cp AndroidDev-Task3-Calculator/MainActivity.java app/src/main/java/com/example/unitconverter/
+        cp AndroidDev-Task3-Calculator/activity_main.xml app/src/main/res/layout/
         
-        # Enable AndroidX
         echo "android.useAndroidX=true" > gradle.properties
-        
         echo "include ':app'" > settings.gradle
         
         cat << 'EOF' > build.gradle
@@ -61,15 +59,14 @@ jobs:
         }
         EOF
 
-        # Updated AndroidManifest using default Android icon
         cat << 'EOF' > app/src/main/AndroidManifest.xml
         <?xml version="1.0" encoding="utf-8"?>
         <manifest xmlns:android="http://schemas.android.com/apk/res/android">
             <application
                 android:allowBackup="true"
                 android:icon="@android:drawable/sym_def_app_icon"
-                android:label="Unit Converter"
-                android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+                android:label="Calculator"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
                 <activity
                     android:name=".MainActivity"
                     android:exported="true">
@@ -93,6 +90,6 @@ jobs:
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: UnitConverter-APK
+        name: Calculator-APK
         path: app/build/outputs/apk/debug/app-debug.apk
         
