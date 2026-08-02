@@ -24,8 +24,8 @@ jobs:
         mkdir -p app/src/main/java/com/example/unitconverter
         mkdir -p app/src/main/res/layout
         
-        cp AndroidDev-Task3-Calculator/MainActivity.java app/src/main/java/com/example/unitconverter/
-        cp AndroidDev-Task3-Calculator/activity_main.xml app/src/main/res/layout/
+        cp AndroidDev-Task2-Stopwatch/MainActivity.java app/src/main/java/com/example/unitconverter/
+        cp AndroidDev-Task2-Stopwatch/activity_main.xml app/src/main/res/layout/
         
         echo "android.useAndroidX=true" > gradle.properties
         echo "include ':app'" > settings.gradle
@@ -65,7 +65,7 @@ jobs:
             <application
                 android:allowBackup="true"
                 android:icon="@android:drawable/sym_def_app_icon"
-                android:label="Calculator"
+                android:label="Stopwatch"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
                 <activity
                     android:name=".MainActivity"
@@ -90,6 +90,6 @@ jobs:
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Calculator-APK
+        name: Stopwatch-APK
         path: app/build/outputs/apk/debug/app-debug.apk
         
